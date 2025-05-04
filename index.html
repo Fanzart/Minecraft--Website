@@ -1,41 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Koleksi Schematic Minecraft</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #1e1e1e;
-      color: #fff;
+      background-color: #1f1f1f;
+      color: #ffffff;
       margin: 0;
       padding: 20px;
-      text-align: center;
     }
 
     h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .search-bar {
+      text-align: center;
       margin-bottom: 20px;
     }
 
     .search-bar input {
-      padding: 10px;
-      width: 250px;
-      border-radius: 6px;
+      padding: 14px;
+      font-size: 16px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
       border: none;
-      margin-bottom: 30px;
     }
 
     .category-menu {
+      text-align: center;
       margin-bottom: 30px;
     }
 
     .category-menu button {
+      padding: 12px 20px;
       margin: 5px;
-      padding: 8px 16px;
       border: none;
       border-radius: 6px;
       background-color: #444;
       color: white;
+      font-size: 16px;
       cursor: pointer;
     }
 
@@ -47,31 +57,32 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
     }
 
     .card {
       background-color: #2b2b2b;
-      border-radius: 12px;
-      padding: 20px;
-      width: 300px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      width: 320px;
+      padding: 16px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     }
 
     .card img {
       width: 100%;
       border-radius: 8px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .card h2 {
+      font-size: 20px;
       margin: 10px 0;
     }
 
     .download-btn {
       display: inline-block;
       margin-top: 10px;
-      padding: 10px 20px;
+      padding: 10px 16px;
       background-color: #00c853;
       color: white;
       text-decoration: none;
@@ -85,6 +96,7 @@
   </style>
 </head>
 <body>
+
   <h1>Koleksi Schematic Minecraft</h1>
 
   <div class="search-bar">
@@ -96,30 +108,29 @@
     <button class="category-btn" data-category="house">House</button>
     <button class="category-btn" data-category="barn">Barn</button>
     <button class="category-btn" data-category="farm">Farm</button>
-    <!-- Tambah kategori lain -->
   </div>
 
   <div class="container" id="buildContainer">
-
-    <!-- Bangunan -->
+    <!-- Contoh 1 -->
     <div class="card" data-category="house" data-name="Rumah Medieval">
       <img src="LINK-GAMBAR-1" alt="Rumah Medieval">
       <h2>Rumah Medieval</h2>
       <a class="download-btn" href="LINK-SCHEMATIC-1" download>Download</a>
     </div>
 
+    <!-- Contoh 2 -->
     <div class="card" data-category="barn" data-name="Gudang Kayu">
       <img src="LINK-GAMBAR-2" alt="Gudang Kayu">
       <h2>Gudang Kayu</h2>
       <a class="download-btn" href="LINK-SCHEMATIC-2" download>Download</a>
     </div>
 
+    <!-- Contoh 3 -->
     <div class="card" data-category="farm" data-name="Ladang Padi">
       <img src="LINK-GAMBAR-3" alt="Ladang Padi">
       <h2>Ladang Padi</h2>
       <a class="download-btn" href="LINK-SCHEMATIC-3" download>Download</a>
     </div>
-
   </div>
 
   <script>
@@ -127,7 +138,6 @@
     const categoryButtons = document.querySelectorAll('.category-btn');
     const cards = document.querySelectorAll('.card');
 
-    // Search
     searchInput.addEventListener('input', () => {
       const search = searchInput.value.toLowerCase();
       cards.forEach(card => {
@@ -136,23 +146,19 @@
       });
     });
 
-    // Filter by category
     categoryButtons.forEach(button => {
       button.addEventListener('click', () => {
         categoryButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
 
         const selected = button.getAttribute('data-category');
-
         cards.forEach(card => {
-          if (selected === 'all' || card.getAttribute('data-category') === selected) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
+          const match = selected === 'all' || card.getAttribute('data-category') === selected;
+          card.style.display = match ? 'block' : 'none';
         });
       });
     });
   </script>
+
 </body>
 </html>
