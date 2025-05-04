@@ -1,32 +1,158 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download Schematic Minecraft</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Koleksi Schematic Minecraft</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 30px;
+    }
+
+    .category-menu {
+      margin-bottom: 30px;
+    }
+
+    .category-menu button {
+      margin: 5px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+    }
+
+    .category-menu button.active {
+      background-color: #00c853;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      background-color: #2b2b2b;
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      margin: 10px 0;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #00c853;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <header class="bg-green-700 p-6 text-white text-center">
-    <h1 class="text-3xl font-bold">Minecraft Schematic Store</h1>
-    <p class="text-sm">Download gratis dan premium schematic bangunan Minecraft</p>
-  </header>
+<body>
+  <h1>Koleksi Schematic Minecraft</h1>
 
-  <main class="p-6 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-    <!-- Card Produk -->
-    <div class="bg-white shadow-md rounded-2xl overflow-hidden">
-      <img src="https://example.com/foto-rumah.jpg" alt="Rumah Medieval" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h2 class="text-xl font-semibold mb-2">Rumah Medieval</h2>
-        <p class="text-sm text-gray-600 mb-4">Desain rumah kayu dan batu bergaya Eropa klasik.</p>
-        <a href="download/rmh_medieval.mcstructure" download class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700">Download</a>
-      </div>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Cari bangunan...">
+  </div>
+
+  <div class="category-menu">
+    <button class="category-btn active" data-category="all">Semua</button>
+    <button class="category-btn" data-category="house">House</button>
+    <button class="category-btn" data-category="barn">Barn</button>
+    <button class="category-btn" data-category="farm">Farm</button>
+    <!-- Tambah kategori lain -->
+  </div>
+
+  <div class="container" id="buildContainer">
+
+    <!-- Bangunan -->
+    <div class="card" data-category="house" data-name="Rumah Medieval">
+      <img src="LINK-GAMBAR-1" alt="Rumah Medieval">
+      <h2>Rumah Medieval</h2>
+      <a class="download-btn" href="LINK-SCHEMATIC-1" download>Download</a>
     </div>
-  </main>
 
-  <footer class="text-center p-4 text-sm text-gray-500">
-    &copy; 2025 Minecraft Schematic Store - Dibuat oleh Kamu
-  </footer>
+    <div class="card" data-category="barn" data-name="Gudang Kayu">
+      <img src="LINK-GAMBAR-2" alt="Gudang Kayu">
+      <h2>Gudang Kayu</h2>
+      <a class="download-btn" href="LINK-SCHEMATIC-2" download>Download</a>
+    </div>
+
+    <div class="card" data-category="farm" data-name="Ladang Padi">
+      <img src="LINK-GAMBAR-3" alt="Ladang Padi">
+      <h2>Ladang Padi</h2>
+      <a class="download-btn" href="LINK-SCHEMATIC-3" download>Download</a>
+    </div>
+
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const cards = document.querySelectorAll('.card');
+
+    // Search
+    searchInput.addEventListener('input', () => {
+      const search = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        card.style.display = name.includes(search) ? 'block' : 'none';
+      });
+    });
+
+    // Filter by category
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const selected = button.getAttribute('data-category');
+
+        cards.forEach(card => {
+          if (selected === 'all' || card.getAttribute('data-category') === selected) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
