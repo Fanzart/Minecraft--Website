@@ -1,164 +1,84 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Koleksi Schematic Minecraft</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #1f1f1f;
-      color: #ffffff;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-
-    .search-bar {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .search-bar input {
-      padding: 14px;
-      font-size: 16px;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 8px;
-      border: none;
-    }
-
-    .category-menu {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .category-menu button {
-      padding: 12px 20px;
-      margin: 5px;
-      border: none;
-      border-radius: 6px;
-      background-color: #444;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .category-menu button.active {
-      background-color: #00c853;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .card {
-      background-color: #2b2b2b;
-      border-radius: 10px;
-      width: 320px;
-      padding: 16px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
-
-    .card h2 {
-      font-size: 20px;
-      margin: 10px 0;
-    }
-
-    .download-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 16px;
-      background-color: #00c853;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Minecraft Schematics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .download-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .download-section h2 {
+            text-align: center;
+            color: #333;
+        }
+        .schematic-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px 0;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        .download-btn {
+            display: block;
+            width: 100%;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
 
-  <h1>Koleksi Schematic Minecraft</h1>
+<header>
+    <h1>Download Minecraft Schematics</h1>
+</header>
 
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Cari bangunan...">
-  </div>
-
-  <div class="category-menu">
-    <button class="category-btn active" data-category="all">Semua</button>
-    <button class="category-btn" data-category="house">House</button>
-    <button class="category-btn" data-category="barn">Barn</button>
-    <button class="category-btn" data-category="farm">Farm</button>
-  </div>
-
-  <div class="container" id="buildContainer">
-    <!-- Contoh 1 -->
-    <div class="card" data-category="house" data-name="Rumah Medieval">
-      <img src="535fb9a2-4b41-463f-913d-d240c6478717.jpeg" alt="Rumah Medieval">
-      <h2>Simple House</h2>
-      <a class="https://link.adsafelink.com/PD83ah" href="LINK-SCHEMATIC-1" download>Download</a>
+<div class="container">
+    <div class="download-section">
+        <h2>Download Your Favorite Minecraft Build</h2>
+        <!-- Gambar bangunan Minecraft -->
+        <img src="https://via.placeholder.com/400x300.png?text=Minecraft+Building+Image" alt="Minecraft Building" class="schematic-image">
+        
+        <!-- Tombol untuk mengunduh schematic -->
+        <button class="download-btn" onclick="window.location.href='YOUR_DOWNLOAD_LINK_HERE'">Download Schematic</button>
     </div>
-
-    <!-- Contoh 2 -->
-    <div class="build-card">
-  <h2>Fantasy House 2</h2>
-  <img src="assets/images/fantasy-house-2.jpg" alt="Fantasy House 2" width="100%" />
-  <a href="https://link.adsafelink.com/PD83ah" target="_blank">Download Schematic</a>
-    </div>
-
-    <!-- Contoh 3 -->
-    <div class="card" data-category="farm" data-name="Ladang Padi">
-      <img src="LINK-GAMBAR-3" alt="Ladang Padi">
-      <h2>Ladang Padi</h2>
-      <a class="download-btn" href="LINK-SCHEMATIC-3" download>Download</a>
-    </div>
-  </div>
-
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const cards = document.querySelectorAll('.card');
-
-    searchInput.addEventListener('input', () => {
-      const search = searchInput.value.toLowerCase();
-      cards.forEach(card => {
-        const name = card.getAttribute('data-name').toLowerCase();
-        card.style.display = name.includes(search) ? 'block' : 'none';
-      });
-    });
-
-    categoryButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        categoryButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        const selected = button.getAttribute('data-category');
-        cards.forEach(card => {
-          const match = selected === 'all' || card.getAttribute('data-category') === selected;
-          card.style.display = match ? 'block' : 'none';
-        });
-      });
-    });
-  </script>
+</div>
 
 </body>
 </html>
